@@ -10,7 +10,7 @@ Int      line_number(Method * method, Int pc);
 cList * decompile(Method * method,
                    Obj * object,
                    Int        increment,
-                   Int        parens);
+                   int        fflags);
 
 #define FMT_DEFAULT     0
 #define FMT_FULL_PARENS 1

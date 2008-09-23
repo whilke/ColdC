@@ -134,8 +134,8 @@ NATIVE_METHOD(version) {
     d[0].u.val = VERSION_MAJOR;
     d[1].u.val = VERSION_MINOR;
     d[2].u.val = VERSION_PATCH;
-    d[3].type = STRING;
-    d[3].u.str = string_dup(str_release);
+    d[3].type = INTEGER;
+    d[3].u.val = VERSION_RELEASE;
     d[4].type = STRING;
     d[4].u.str = string_dup(str_system);
 

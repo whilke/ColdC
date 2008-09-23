@@ -172,7 +172,7 @@ void verify_clean(void) {
             if (atoi(v_minor) == VERSION_MINOR) {
                 if (atoi(v_patch) == VERSION_PATCH) {
                     if (atol(magicmod) == MAGIC_MODNUMBER) {
-                        if (strcmp(system, SYSTEM_TYPE) == 0) {
+                        if (strcmp(system, "SYSTEM_TYPE") == 0) {
                             isdirty = NO; /* yay */
                         }
                     }
@@ -190,7 +190,7 @@ void verify_clean(void) {
 ** it:   <%s> %d.%d-%d (module key %li)\n\
 ** this: <%s> %d.%d-%d (module key %li)\n",
         c_dir_binary, system, atoi(v_major), atoi(v_minor), atoi(v_patch),
-        atol(magicmod), SYSTEM_TYPE, VERSION_MAJOR, VERSION_MINOR,
+        atol(magicmod), "SYSTEM_TYPE", VERSION_MAJOR, VERSION_MINOR,
         VERSION_PATCH, (long) MAGIC_MODNUMBER);
         FAIL("Unable to load database \"%s\": incompatible.\n");
     }
@@ -579,7 +579,7 @@ void db_flush(void)
 }
 
 #define write_clean_file(_fp_) \
-    fprintf(_fp_, "%s\n%d\n%d\n%d\n%li\n", SYSTEM_TYPE, \
+    fprintf(_fp_, "%s\n%d\n%d\n%d\n%li\n", "SYSTEM_TYPE", \
                 VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH,\
                 (long) MAGIC_MODNUMBER)\
 

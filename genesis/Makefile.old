@@ -21,5 +21,4 @@ commit:
 	cvs commit
 
 config:
-	@if test ! -f configure; then autoconf ; fi 
 	@if test ! -f src/Makefile; then ./configure; fi
