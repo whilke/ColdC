@@ -4,7 +4,7 @@
 = Introduction =
 
 _This is a copy/paste of the basic module information from doc/NATIVES_
-
+{{{
 This document outlines the creation of native methods in a module.  Until
 better documentation appears your best bet along side using this document
 is to simply look at existing modules.
@@ -204,4 +204,4 @@ the stack before returning the data (so you do not have to call
 CLEAN_STACK()).  Be warned when using the latter macro's, if you do not
 increment references to your data it will be purged before it is returned,
 causing a segmentation violation.
-
+}}}
