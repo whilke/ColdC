@@ -90,10 +90,16 @@
 #undef SIZEOF_SHORT
 #undef SIZEOF_INT
 #undef SIZEOF_LONG
+#undef SIZEOF_LONG_LONG
 #undef SIZEOF_LLONG
 #undef SIZEOF_FLOAT
 #undef SIZEOF_DOUBLE
+#undef SIZEOF_LONG_DOUBLE
 #undef SIZEOF_LDOUBLE
+/* Workaround for LLONG, LDOUBLE not being really defined properly */
+#define SIZEOF_LLONG SIZEOF_LONG_LONG
+#define SIZEOF_LDOUBLE SIZEOF_LONG_DOUBLE
+
 
 /* Define if you have the getrusage function.  */
 #undef HAVE_GETRUSAGE
@@ -143,13 +149,24 @@
 #undef RESTRICTIVE_FILES
 
 #undef CACHE_WIDTH
+/* If there's no detectivation, define it here. -DGW */
+#ifndef CACHE_WIDTH
+#	define 	CACHE_WIDTH	61
+#endif
+
 #undef CACHE_DEPTH
+/* If there's no detectivation, define it here. -DGW */
+#ifndef CACHE_DEPTH
+#	define	CACHE_DEPTH	10
+#endif
 
 #undef SYSTEM_TYPE
 
 #undef USE_OS_CRYPT
 
+
 #ifndef __UNIX__
 #  define __UNIX__
 #endif
 
+#endif

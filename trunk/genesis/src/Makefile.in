@@ -29,6 +29,7 @@ VERSION=@VERSION@
 VMAJOR=@VMAJOR@
 VMINOR=@VMINOR@
 VPATCH=@VPATCH@
+VRELEASE=@VRELEASE@
 INSTALL=@INSTALL@
 
 DATA_O     = data/data.o data/buffer.o data/dict.o data/ident.o\
@@ -87,8 +88,9 @@ clean:
 	@cd $(MODULES); make $@
 	@cd $(OPSDIR); make $@
 	@cd $(DATADIR); make $@
+	@cd $(SRCDIR)/..; rm -rf configure autom4te.cache config.log config.status configure.lineno  
 
-scrub:
+scrub: clean
 	rm -f *.o include/parse.h grammar.c *~ *.BAK *.bak y.output *.core
 	rm -f textdump*
 	rm -f $(EXES)
@@ -97,6 +99,7 @@ scrub:
 	@cd $(MODULES); make $@
 	@cd $(OPSDIR); make $@
 	@cd $(DATADIR); make $@
+	@cd $(SRCDIR); rm -f Makefile
 
 commitable:
 	@cd $(MODULES); ./modbuild -m0 cdc web ext_math

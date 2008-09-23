@@ -381,10 +381,10 @@ typedef bool              Bool;
 #include <unistd.h>
 #endif
 
-#ifdef sys_linux
+/*#ifdef sys_linux */
 #undef NULL
 #define NULL 0
-#endif
+/*#endif*/
 
 #include <setjmp.h>
 #include "cdc_errs.h"

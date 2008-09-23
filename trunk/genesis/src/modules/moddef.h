@@ -11,14 +11,16 @@
 #include "cdc.h"
 #include "web.h"
 #include "ext_math.h"
+#include "test.h"
 
-#define NUM_MODULES 3
+#define NUM_MODULES 4
 
 #ifdef _native_
 module_t * cold_modules[] = {
     &cdc_module,
     &web_module,
     &ext_math_module,
+    &test_module,
 };
 #endif
 
@@ -91,9 +93,18 @@ module_t * cold_modules[] = {
 #define NATIVE_MATH_SCALE 66
 #define NATIVE_MATH_IS_LOWER 67
 #define NATIVE_MATH_TRANSPOSE 68
-#define NATIVE_LAST 69
+#define NATIVE_TEST_TEST1 69
+#define NATIVE_TEST_TEST2 70
+#define NATIVE_TEST_TEST3 71
+#define NATIVE_TEST_TEST4 72
+#define NATIVE_TEST_TEST5 73
+#define NATIVE_TEST_TEST6 74
+#define NATIVE_TEST_TEST7 75
+#define NATIVE_TEST_TEST8 76
+#define NATIVE_TEST_TEST9 77
+#define NATIVE_LAST 78
 
-#define MAGIC_MODNUMBER 0
+#define MAGIC_MODNUMBER 1221494040
 
 
 #ifdef _native_
@@ -167,6 +178,15 @@ native_t natives[NATIVE_LAST] = {
     {"math",         "scale",             native_scale},
     {"math",         "is_lower",          native_is_lower},
     {"math",         "transpose",         native_transpose},
+    {"test",         "test1",             native_test1},
+    {"test",         "test2",             native_test2},
+    {"test",         "test3",             native_test3},
+    {"test",         "test4",             native_test4},
+    {"test",         "test5",             native_test5},
+    {"test",         "test6",             native_test6},
+    {"test",         "test7",             native_test7},
+    {"test",         "test8",             native_test8},
+    {"test",         "test9",             native_test9},
 };
 #else
 extern native_t natives[NATIVE_LAST];
