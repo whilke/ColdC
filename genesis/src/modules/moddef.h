@@ -9,18 +9,14 @@
 #include "native.h"
 
 #include "cdc.h"
-#include "web.h"
 #include "ext_math.h"
-#include "test.h"
 
-#define NUM_MODULES 4
+#define NUM_MODULES 2
 
 #ifdef _native_
 module_t * cold_modules[] = {
     &cdc_module,
-    &web_module,
     &ext_math_module,
-    &test_module,
 };
 #endif
 
@@ -80,31 +76,19 @@ module_t * cold_modules[] = {
 #define NATIVE_INTEGER_SHLEFT 53
 #define NATIVE_INTEGER_SHRIGHT 54
 #define NATIVE_INTEGER_NOT 55
-#define NATIVE_HTTP_DECODE 56
-#define NATIVE_HTTP_ENCODE 57
-#define NATIVE_STRING_HTML_ESCAPE 58
-#define NATIVE_MATH_MINOR 59
-#define NATIVE_MATH_MAJOR 60
-#define NATIVE_MATH_ADD 61
-#define NATIVE_MATH_SUB 62
-#define NATIVE_MATH_DOT 63
-#define NATIVE_MATH_DISTANCE 64
-#define NATIVE_MATH_CROSS 65
-#define NATIVE_MATH_SCALE 66
-#define NATIVE_MATH_IS_LOWER 67
-#define NATIVE_MATH_TRANSPOSE 68
-#define NATIVE_TEST_TEST1 69
-#define NATIVE_TEST_TEST2 70
-#define NATIVE_TEST_TEST3 71
-#define NATIVE_TEST_TEST4 72
-#define NATIVE_TEST_TEST5 73
-#define NATIVE_TEST_TEST6 74
-#define NATIVE_TEST_TEST7 75
-#define NATIVE_TEST_TEST8 76
-#define NATIVE_TEST_TEST9 77
-#define NATIVE_LAST 78
+#define NATIVE_MATH_MINOR 56
+#define NATIVE_MATH_MAJOR 57
+#define NATIVE_MATH_ADD 58
+#define NATIVE_MATH_SUB 59
+#define NATIVE_MATH_DOT 60
+#define NATIVE_MATH_DISTANCE 61
+#define NATIVE_MATH_CROSS 62
+#define NATIVE_MATH_SCALE 63
+#define NATIVE_MATH_IS_LOWER 64
+#define NATIVE_MATH_TRANSPOSE 65
+#define NATIVE_LAST 66
 
-#define MAGIC_MODNUMBER 1221494040
+#define MAGIC_MODNUMBER 1231358622
 
 
 #ifdef _native_
@@ -165,9 +149,6 @@ native_t natives[NATIVE_LAST] = {
     {"integer",      "shleft",            native_shleft},
     {"integer",      "shright",           native_shright},
     {"integer",      "not",               native_not},
-    {"http",         "decode",            native_decode},
-    {"http",         "encode",            native_encode},
-    {"string",       "html_escape",       native_html_escape},
     {"math",         "minor",             native_minor},
     {"math",         "major",             native_major},
     {"math",         "add",               native_add},
@@ -178,15 +159,6 @@ native_t natives[NATIVE_LAST] = {
     {"math",         "scale",             native_scale},
     {"math",         "is_lower",          native_is_lower},
     {"math",         "transpose",         native_transpose},
-    {"test",         "test1",             native_test1},
-    {"test",         "test2",             native_test2},
-    {"test",         "test3",             native_test3},
-    {"test",         "test4",             native_test4},
-    {"test",         "test5",             native_test5},
-    {"test",         "test6",             native_test6},
-    {"test",         "test7",             native_test7},
-    {"test",         "test8",             native_test8},
-    {"test",         "test9",             native_test9},
 };
 #else
 extern native_t natives[NATIVE_LAST];
