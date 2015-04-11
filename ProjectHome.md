@@ -1,0 +1,1 @@
+The Cold Software Project is a group of people joined in the common goal of developing software in and for ColdC. ColdC is a run-time mutable object oriented database language, engineered specifically as an engine for online persistent servers (such as Virtual Environment Systems).
